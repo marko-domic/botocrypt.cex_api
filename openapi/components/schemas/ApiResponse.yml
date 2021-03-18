@@ -1,0 +1,15 @@
+---
+
+type: object
+description: CEX.IO API reponse
+properties:
+  e:
+    type: string
+  data:
+    type: array
+    items:
+      $ref: Ticker.yml
+  ok:
+    type: string
+  error:
+    type: string

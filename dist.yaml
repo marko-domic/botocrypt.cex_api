@@ -1,0 +1,144 @@
+openapi: 3.0.2
+info:
+  version: 1.0.0
+  title: CEX.IO API schema
+  contact:
+    email: marko.domic@outlook.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  description: API schema of the CEX.IO REST API
+servers:
+  - url: 'https://cex.io/api'
+    description: CEX.IO API Server
+paths:
+  '/tickers/{marketSymbol1}/{marketSymbol2}/{marketSymbol3}':
+    get:
+      summary: Get cryptocurrencies prices from CEX.IO
+      operationId: getCryptocurrenciesPrices
+      description: Get cryptocurrencies prices from CEX.IO
+      parameters:
+        - $ref: '#/components/parameters/marketSymbol1'
+        - $ref: '#/components/parameters/marketSymbol2'
+        - $ref: '#/components/parameters/marketSymbol3'
+      responses:
+        '200':
+          description: 'Request successfull, cryptocurrencies prices returned'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+components:
+  parameters:
+    marketSymbol1:
+      name: marketSymbol1
+      in: path
+      description: Currency id
+      schema:
+        type: string
+    marketSymbol2:
+      name: marketSymbol2
+      in: path
+      description: Currency id
+      schema:
+        type: string
+    marketSymbol3:
+      name: marketSymbol3
+      in: path
+      description: Currency id
+      schema:
+        type: string
+  schemas:
+    Ticker:
+      type: object
+      description: CEX.IO ticker
+      properties:
+        bid:
+          type: number
+          format: double
+        ask:
+          type: number
+          format: double
+        low:
+          type: string
+        high:
+          type: string
+        last:
+          type: string
+        volume:
+          type: string
+        volume30d:
+          type: string
+        timestamp:
+          type: string
+    ApiResponse:
+      type: object
+      description: CEX.IO API reponse
+      properties:
+        e:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ticker'
+        ok:
+          type: string
+        error:
+          type: string
+  responses:
+    BadRequest:
+      description: 400 - The request was malformed or missing a field
+      content:
+        application/json:
+          schema:
+            description: Optional info about how the request was bad
+            type: object
+            properties:
+              fieldName:
+                description: >-
+                  If this error was due to a prticular field, this is the name
+                  of that field
+                type: string
+              message:
+                description: A text message
+                type: string
+    NotFound:
+      description: 404 - The request resource could not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                description: A text message
+                type: string
+    InternalError:
+      description: >-
+        500 - The server encountered an internal error while processing this
+        request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                description: A text message
+                type: string
+    NotImplemented:
+      description: 501 - The request method is not implemented
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                description: A text message
+                type: string

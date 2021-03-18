@@ -1,0 +1,10 @@
+---
+description: '404 - The request resource could not found'
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        message:
+          description: A text message
+          type: string

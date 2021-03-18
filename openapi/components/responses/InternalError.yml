@@ -1,0 +1,10 @@
+---
+description: '500 - The server encountered an internal error while processing this request'
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        message:
+          description: A text message
+          type: string

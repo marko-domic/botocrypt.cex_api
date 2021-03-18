@@ -1,0 +1,14 @@
+---
+description: '400 - The request was malformed or missing a field'
+content:
+  application/json:
+    schema:
+      description: Optional info about how the request was bad
+      type: object
+      properties:
+        fieldName:
+          description: If this error was due to a prticular field, this is the name of that field
+          type: string
+        message:
+          description: A text message
+          type: string

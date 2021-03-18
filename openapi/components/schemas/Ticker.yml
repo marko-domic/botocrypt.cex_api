@@ -1,0 +1,22 @@
+---
+type: object
+description: CEX.IO ticker
+properties:
+  bid:
+    type: number
+    format: double
+  ask:
+    type: number
+    format: double
+  low:
+    type: string
+  high:
+    type: string
+  last:
+    type: string
+  volume:
+    type: string
+  volume30d:
+    type: string
+  timestamp:
+    type: string

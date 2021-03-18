@@ -1,0 +1,10 @@
+---
+description: '501 - The request method is not implemented'
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        message:
+          description: A text message
+          type: string

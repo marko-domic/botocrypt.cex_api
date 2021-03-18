@@ -1,0 +1,5 @@
+name: marketSymbol3
+in: path
+description: Currency id
+schema:
+  type: string
