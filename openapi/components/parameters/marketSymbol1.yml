@@ -1,5 +1,6 @@
 name: marketSymbol1
 in: path
 description: Currency id
+required: true
 schema:
   type: string

@@ -1,0 +1,19 @@
+---
+
+get:
+  summary: Get cryptocurrencies prices from CEX.IO for 1 market symbol
+  operationId: getCryptocurrenciesPricesForOneMarketSymbol
+  description: Get cryptocurrencies prices from CEX.IO for 1 market symbol
+  parameters:
+    - $ref: '../components/parameters/marketSymbol1.yml'
+  responses:
+    200:
+      description: Request successfull, cryptocurrencies prices returned
+      content:
+        application/json:
+          schema: { $ref: '../components/schemas/ApiResponse.yml' }
+    400: { $ref: '../components/responses/BadRequest.yml' }
+    404: { $ref: '../components/responses/NotFound.yml' }
+    500: { $ref: '../components/responses/InternalError.yml' }
+    501: { $ref: '../components/responses/NotImplemented.yml' }
+      

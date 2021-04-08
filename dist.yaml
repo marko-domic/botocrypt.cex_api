@@ -12,11 +12,56 @@ servers:
   - url: 'https://cex.io/api'
     description: CEX.IO API Server
 paths:
+  '/tickers/{marketSymbol1}':
+    get:
+      summary: Get cryptocurrencies prices from CEX.IO for 1 market symbol
+      operationId: getCryptocurrenciesPricesForOneMarketSymbol
+      description: Get cryptocurrencies prices from CEX.IO for 1 market symbol
+      parameters:
+        - $ref: '#/components/parameters/marketSymbol1'
+      responses:
+        '200':
+          description: 'Request successfull, cryptocurrencies prices returned'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+  '/tickers/{marketSymbol1}/{marketSymbol2}':
+    get:
+      summary: Get cryptocurrencies prices from CEX.IO for 2 market symbol
+      operationId: getCryptocurrenciesPricesForTwoMarketSymbol
+      description: Get cryptocurrencies prices from CEX.IO for 2 market symbol
+      parameters:
+        - $ref: '#/components/parameters/marketSymbol1'
+        - $ref: '#/components/parameters/marketSymbol2'
+      responses:
+        '200':
+          description: 'Request successfull, cryptocurrencies prices returned'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
   '/tickers/{marketSymbol1}/{marketSymbol2}/{marketSymbol3}':
     get:
-      summary: Get cryptocurrencies prices from CEX.IO
-      operationId: getCryptocurrenciesPrices
-      description: Get cryptocurrencies prices from CEX.IO
+      summary: Get cryptocurrencies prices from CEX.IO for 3 market symbol
+      operationId: getCryptocurrenciesPricesForThreeMarketSymbol
+      description: Get cryptocurrencies prices from CEX.IO for 3 market symbol
       parameters:
         - $ref: '#/components/parameters/marketSymbol1'
         - $ref: '#/components/parameters/marketSymbol2'
@@ -42,18 +87,21 @@ components:
       name: marketSymbol1
       in: path
       description: Currency id
+      required: true
       schema:
         type: string
     marketSymbol2:
       name: marketSymbol2
       in: path
       description: Currency id
+      required: true
       schema:
         type: string
     marketSymbol3:
       name: marketSymbol3
       in: path
       description: Currency id
+      required: true
       schema:
         type: string
   schemas:

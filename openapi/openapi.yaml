@@ -16,5 +16,9 @@ servers:
   - url: 'https://cex.io/api'
     description: CEX.IO API Server
 paths:
+  /tickers/{marketSymbol1}: 
+    $ref: paths/tickers-for-one-market-symbol.yml
+  /tickers/{marketSymbol1}/{marketSymbol2}: 
+    $ref: paths/tickers-for-two-market-symbols.yml
   /tickers/{marketSymbol1}/{marketSymbol2}/{marketSymbol3}: 
-    $ref: paths/tickers.yml
+    $ref: paths/tickers-for-three-market-symbols.yml

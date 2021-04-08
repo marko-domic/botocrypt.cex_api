@@ -19,3 +19,7 @@ Bundles the definition to the [dist.yaml](dist.yaml) file.
 
 #### `npm test`
 Validates the definition.
+
+## Information about OpenAPI Repo tool
+
+Information about tool which is used for creating specification along with its own documentation can be found on this [link](https://github.com/Redocly/create-openapi-repo)
