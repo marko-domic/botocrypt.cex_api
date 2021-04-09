@@ -17,6 +17,8 @@ paths:
       summary: Get cryptocurrencies prices from CEX.IO for 1 market symbol
       operationId: getCryptocurrenciesPricesForOneMarketSymbol
       description: Get cryptocurrencies prices from CEX.IO for 1 market symbol
+      tags:
+        - tickers
       parameters:
         - $ref: '#/components/parameters/marketSymbol1'
       responses:
@@ -39,6 +41,8 @@ paths:
       summary: Get cryptocurrencies prices from CEX.IO for 2 market symbol
       operationId: getCryptocurrenciesPricesForTwoMarketSymbol
       description: Get cryptocurrencies prices from CEX.IO for 2 market symbol
+      tags:
+        - tickers
       parameters:
         - $ref: '#/components/parameters/marketSymbol1'
         - $ref: '#/components/parameters/marketSymbol2'
@@ -62,6 +66,8 @@ paths:
       summary: Get cryptocurrencies prices from CEX.IO for 3 market symbol
       operationId: getCryptocurrenciesPricesForThreeMarketSymbol
       description: Get cryptocurrencies prices from CEX.IO for 3 market symbol
+      tags:
+        - tickers
       parameters:
         - $ref: '#/components/parameters/marketSymbol1'
         - $ref: '#/components/parameters/marketSymbol2'

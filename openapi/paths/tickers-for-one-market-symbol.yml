@@ -4,6 +4,8 @@ get:
   summary: Get cryptocurrencies prices from CEX.IO for 1 market symbol
   operationId: getCryptocurrenciesPricesForOneMarketSymbol
   description: Get cryptocurrencies prices from CEX.IO for 1 market symbol
+  tags:
+    - tickers
   parameters:
     - $ref: '../components/parameters/marketSymbol1.yml'
   responses:
