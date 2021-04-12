@@ -14,7 +14,7 @@ get:
     200:
       description: Request successfull, cryptocurrencies prices returned
       content:
-        application/json:
+        text/json:
           schema: { $ref: '../components/schemas/ApiResponse.yml' }
     400: { $ref: '../components/responses/BadRequest.yml' }
     404: { $ref: '../components/responses/NotFound.yml' }
