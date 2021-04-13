@@ -133,6 +133,8 @@ components:
           type: string
         timestamp:
           type: string
+        pair:
+          type: string
     ApiResponse:
       type: object
       description: CEX.IO API reponse

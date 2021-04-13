@@ -20,3 +20,5 @@ properties:
     type: string
   timestamp:
     type: string
+  pair:
+    type: string
