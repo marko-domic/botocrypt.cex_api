@@ -4,7 +4,7 @@ type: object
 description: CEX.IO API orderbook reponse
 properties:
   timestamp:
-    type: number
+    type: integer
     format: int64
   bids:
     type: array
@@ -12,18 +12,16 @@ properties:
       type: array
       items: 
         type: number
-        format: double
   asks:
     type: array
     items:
       type: array
       items: 
         type: number
-        format: double
   pair:
     type: string
   id:
-    type: number
+    type: integer
     format: int64
   sell_total:
     type: string
