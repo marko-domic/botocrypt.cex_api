@@ -1,7 +1,7 @@
 ---
 
 type: object
-description: CEX.IO API orderbook reponse
+description: CEX.IO API order book reponse
 properties:
   timestamp:
     type: integer

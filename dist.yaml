@@ -89,11 +89,11 @@ paths:
           $ref: '#/components/responses/NotImplemented'
   '/order_book/{marketSymbol1}/{marketSymbol2}':
     get:
-      summary: Get cryptocurrencies orderbook from CEX.IO for crypto pair
-      operationId: getOrderbookForCryptoPair
-      description: Get cryptocurrencies orderbook from CEX.IO for pair
+      summary: Get cryptocurrencies order book from CEX.IO for crypto pair
+      operationId: getOrderBookForCryptoPair
+      description: Get cryptocurrencies order book from CEX.IO for pair
       tags:
-        - orderbook
+        - order-book
       parameters:
         - $ref: '#/components/parameters/marketSymbol1'
         - $ref: '#/components/parameters/marketSymbol2'
@@ -103,7 +103,7 @@ paths:
           content:
             text/json:
               schema:
-                $ref: '#/components/schemas/Orderbook'
+                $ref: '#/components/schemas/OrderBook'
         '400':
           $ref: '#/components/responses/BadRequest'
         '404':
@@ -174,9 +174,9 @@ components:
           type: string
         error:
           type: string
-    Orderbook:
+    OrderBook:
       type: object
-      description: CEX.IO API orderbook reponse
+      description: CEX.IO API order book reponse
       properties:
         timestamp:
           type: integer
