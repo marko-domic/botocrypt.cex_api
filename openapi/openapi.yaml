@@ -22,3 +22,6 @@ paths:
     $ref: paths/tickers-for-two-market-symbols.yml
   /tickers/{marketSymbol1}/{marketSymbol2}/{marketSymbol3}: 
     $ref: paths/tickers-for-three-market-symbols.yml
+
+  /order_book/{marketSymbol1}/{marketSymbol2}:
+    $ref: paths/orderbook.yml

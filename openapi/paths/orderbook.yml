@@ -1,0 +1,22 @@
+---
+
+get:
+  summary: Get cryptocurrencies orderbook from CEX.IO for crypto pair
+  operationId: getOrderbookForCryptoPair
+  description: Get cryptocurrencies orderbook from CEX.IO for pair
+  tags:
+    - orderbook
+  parameters:
+    - $ref: '../components/parameters/marketSymbol1.yml'
+    - $ref: '../components/parameters/marketSymbol2.yml'
+  responses:
+    200:
+      description: Request successfull, cryptocurrencies orderbook returned
+      content:
+        text/json:
+          schema: { $ref: '../components/schemas/Orderbook.yml' }
+    400: { $ref: '../components/responses/BadRequest.yml' }
+    404: { $ref: '../components/responses/NotFound.yml' }
+    500: { $ref: '../components/responses/InternalError.yml' }
+    501: { $ref: '../components/responses/NotImplemented.yml' }
+      

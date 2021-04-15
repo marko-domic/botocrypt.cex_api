@@ -87,6 +87,31 @@ paths:
           $ref: '#/components/responses/InternalError'
         '501':
           $ref: '#/components/responses/NotImplemented'
+  '/order_book/{marketSymbol1}/{marketSymbol2}':
+    get:
+      summary: Get cryptocurrencies orderbook from CEX.IO for crypto pair
+      operationId: getOrderbookForCryptoPair
+      description: Get cryptocurrencies orderbook from CEX.IO for pair
+      tags:
+        - orderbook
+      parameters:
+        - $ref: '#/components/parameters/marketSymbol1'
+        - $ref: '#/components/parameters/marketSymbol2'
+      responses:
+        '200':
+          description: 'Request successfull, cryptocurrencies orderbook returned'
+          content:
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Orderbook'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
 components:
   parameters:
     marketSymbol1:
@@ -148,6 +173,36 @@ components:
         ok:
           type: string
         error:
+          type: string
+    Orderbook:
+      type: object
+      description: CEX.IO API orderbook reponse
+      properties:
+        timestamp:
+          type: number
+          format: int64
+        bids:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+        asks:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+        pair:
+          type: string
+        id:
+          type: number
+          format: int64
+        sell_total:
+          type: string
+        buy_total:
           type: string
   responses:
     BadRequest:
